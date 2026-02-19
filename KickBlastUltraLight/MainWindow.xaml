@@ -1,0 +1,81 @@
+<Window x:Class="KickBlastUltraLight.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="clr-namespace:KickBlastUltraLight.Views"
+        Title="KickBlast Ultra Light" Height="760" Width="1280" WindowStartupLocation="CenterScreen">
+    <Grid Background="{StaticResource BgBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="72" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="White" BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,0,1,0">
+            <StackPanel Margin="0,10">
+                <Button Name="DashboardButton" Style="{StaticResource RibbonButtonStyle}" Click="DashboardButton_Click" ToolTip="Dashboard">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="20" Text="&#xE80F;" />
+                </Button>
+                <Button Name="AthletesButton" Style="{StaticResource RibbonButtonStyle}" Click="AthletesButton_Click" ToolTip="Athletes">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="20" Text="&#xE77B;" />
+                </Button>
+                <Button Name="CalculatorButton" Style="{StaticResource RibbonButtonStyle}" Click="CalculatorButton_Click" ToolTip="Calculator">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="20" Text="&#xE8EF;" />
+                </Button>
+                <Button Name="HistoryButton" Style="{StaticResource RibbonButtonStyle}" Click="HistoryButton_Click" ToolTip="History">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="20" Text="&#xE81C;" />
+                </Button>
+                <Button Name="SettingsButton" Style="{StaticResource RibbonButtonStyle}" Click="SettingsButton_Click" ToolTip="Settings">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="20" Text="&#xE713;" />
+                </Button>
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="64" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Border Background="White" BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,0,0,1" Padding="20,10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Name="PageTitleText" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" Text="Dashboard" />
+                    <TextBox Grid.Column="1" Name="GlobalSearchTextBox" VerticalAlignment="Center" Height="38" ToolTip="Search athletes" TextChanged="GlobalSearchTextBox_TextChanged" />
+                    <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <Border Background="#E8EEFF" CornerRadius="999" Padding="14,7" Margin="0,0,8,0">
+                            <TextBlock Text="dinidu" FontWeight="SemiBold" Foreground="{StaticResource AccentBrush}" />
+                        </Border>
+                        <Button Content="Logout" Click="Logout_Click" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Grid Grid.Row="1" Margin="20">
+                <ContentControl Name="MainContentHost" Margin="0,0,0,0" />
+
+                <Border Name="DrawerPanel" Width="360" Background="White" HorizontalAlignment="Right" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="16" Padding="16" Visibility="Collapsed">
+                    <Border.RenderTransform>
+                        <TranslateTransform x:Name="DrawerTransform" X="380" />
+                    </Border.RenderTransform>
+                    <StackPanel>
+                        <DockPanel Margin="0,0,0,12">
+                            <TextBlock Name="DrawerTitleText" Text="Details" FontSize="18" FontWeight="SemiBold" DockPanel.Dock="Left" />
+                            <Button Content="✕" Width="30" Height="30" HorizontalAlignment="Right" Click="CloseDrawerButton_Click" />
+                        </DockPanel>
+                        <ContentControl Name="DrawerContentHost" />
+                    </StackPanel>
+                </Border>
+
+                <Button Name="FabButton" Width="56" Height="56" FontSize="26" Content="+" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,18,18" Style="{StaticResource PrimaryButtonStyle}" Click="FabButton_Click" />
+
+                <Border Name="ToastBorder" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,18,86" Background="White" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="12" Padding="12" Visibility="Collapsed">
+                    <TextBlock Name="ToastText" />
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
