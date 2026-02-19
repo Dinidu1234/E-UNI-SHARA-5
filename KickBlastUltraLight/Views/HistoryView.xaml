@@ -1,0 +1,33 @@
+<UserControl x:Class="KickBlastUltraLight.Views.HistoryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:model="clr-namespace:KickBlastUltraLight.Models">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,0,12">
+            <StackPanel Orientation="Horizontal">
+                <ComboBox Name="AthleteFilterComboBox" Width="240" DisplayMemberPath="FullName" SelectedValuePath="Id" SelectionChanged="FiltersChanged" />
+                <TextBox Name="MonthTextBox" Width="90" Margin="12,4,0,8" TextChanged="FiltersChanged" ToolTip="Month" />
+                <TextBox Name="YearTextBox" Width="120" Margin="12,4,0,8" TextChanged="FiltersChanged" ToolTip="Year" />
+                <Button Content="View Calculation Details" Style="{StaticResource PrimaryButtonStyle}" Margin="12,4,0,8" Click="ViewDetailsButton_Click" />
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Style="{StaticResource CardBorderStyle}">
+            <DataGrid Name="HistoryDataGrid" AutoGenerateColumns="False" SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Athlete" Binding="{Binding AthleteName}" Width="2*" />
+                    <DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="*" />
+                    <DataGridTextColumn Header="Month" Binding="{Binding Month}" Width="*" />
+                    <DataGridTextColumn Header="Total" Binding="{Binding TotalCost}" Width="*" />
+                    <DataGridTextColumn Header="Weight" Binding="{Binding WeightStatus}" Width="*" />
+                    <DataGridTextColumn Header="Due" Binding="{Binding PaymentDueDate}" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+</UserControl>

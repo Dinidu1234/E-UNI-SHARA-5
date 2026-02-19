@@ -1,0 +1,26 @@
+<UserControl x:Class="KickBlastUltraLight.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <UniformGrid Rows="1" Columns="3" Margin="0,0,0,16">
+            <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,12,0">
+                <StackPanel>
+                    <TextBlock Text="Total Athletes" Foreground="#6B7280" />
+                    <TextBlock Name="AthletesCountText" FontSize="30" FontWeight="Bold" />
+                </StackPanel>
+            </Border>
+            <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,12,0">
+                <StackPanel>
+                    <TextBlock Text="Saved Calculations" Foreground="#6B7280" />
+                    <TextBlock Name="CalcCountText" FontSize="30" FontWeight="Bold" />
+                </StackPanel>
+            </Border>
+            <Border Style="{StaticResource CardBorderStyle}">
+                <StackPanel>
+                    <TextBlock Text="Revenue Total" Foreground="#6B7280" />
+                    <TextBlock Name="RevenueText" FontSize="30" FontWeight="Bold" />
+                </StackPanel>
+            </Border>
+        </UniformGrid>
+    </Grid>
+</UserControl>
